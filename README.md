@@ -15,5 +15,7 @@ To give it a try:
 __Note__: with the sample dataset (128 images for training) provided here, you may not reproduce our results because we used a much larger dataset that has 2048 images. 
 You may download the X-ray projection from [TomoBank](https://tomobank.readthedocs.io/en/latest/source/data/docs.data.spheres.html) and make a reconstruction using all the projections as ground truth and a subsampled projections (every 32) as (low dose) noisy input. The dataset we provided, both norml dose (all projections) and low-dose (1/32 subsampled), were reconstructed using SIRT algorithms with 100 iterastions. 
 
+As an example / teaser, a pair of noisy input and its denoised output are shown as follows,
+
 ![Noisy Image](repo-image/ns-w016-i10-r25-s0364.png)
 ![Denoisied Image](repo-image/dn-w016-i10-r25-s0364.png)
