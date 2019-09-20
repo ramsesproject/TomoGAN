@@ -143,8 +143,8 @@ for epoch in range(40001):
         generator.save("%s/%s-it%05d.h5" % (itr_out_dir, args.expName, epoch), \
                        include_optimizer=False)
 
-        discriminator.save("%s/disc-it%05d.h5" % (itr_out_dir, epoch), \
-                       include_optimizer=False)
+        # discriminator.save("%s/disc-it%05d.h5" % (itr_out_dir, epoch), \
+        #                include_optimizer=False)
 
     sys.stdout.flush()
 
