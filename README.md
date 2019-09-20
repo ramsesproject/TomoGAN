@@ -6,7 +6,7 @@ An image quality enhancement model based on generative adversarial networks orig
 
 To give it a try:
 
-* download sample dataset and the ImageNet pretrained vgg model from 
+* download sample dataset and the ImageNet pretrained vgg model from [Here](https://anl.box.com/s/h6koi0hhwqrj1c9tt82tldzo45tl3x15)
 
 * install dependencies, Tensorflow(preferably 1.13)
 
