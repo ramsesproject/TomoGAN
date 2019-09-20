@@ -13,7 +13,6 @@ tf.logging.set_verbosity(tf.logging.ERROR)
 parser = argparse.ArgumentParser(description='encode sinogram image.')
 parser.add_argument('-gpus',  type=str, default="0", help='list of visiable GPUs')
 parser.add_argument('-expName', type=str, required=True, help='Experiment name')
-parser.add_argument('-ckptRstr', type=str, default=None, help='checkpoint to restore')
 parser.add_argument('-lmse', type=float, default=0.5, help='lambda mse')
 parser.add_argument('-lperc', type=float, default=2.0, help='lambda perceptual')
 parser.add_argument('-ladv', type=float, default=20, help='lambda adv')
@@ -97,13 +96,11 @@ for epoch in range(40001):
             disc_fake_o = discriminator(gen_imgs, training=False)
 
             loss_mse = tf.losses.mean_squared_error(gen_imgs, y_mb)
-            # loss_mse = tf.losses.absolute_difference(gen_imgs, y_mb)
             loss_adv = adversarial_loss(disc_fake_o)
 
             vggf_gt  = feature_extractor_vgg.predict(tf.concat([y_mb, y_mb, y_mb], 3).numpy())
             vggf_gen = feature_extractor_vgg.predict(tf.concat([gen_imgs, gen_imgs, gen_imgs], 3).numpy())
             perc_loss= tf.losses.mean_squared_error(vggf_gt.reshape(-1), vggf_gen.reshape(-1))
-            # perc_loss= tf.losses.absolute_difference(vggf_gt.reshape(-1), vggf_gen.reshape(-1))
 
             gen_loss = lambda_adv * loss_adv + lambda_mse * loss_mse + lambda_perc * perc_loss
 
@@ -145,11 +142,9 @@ for epoch in range(40001):
 
         generator.save("%s/%s-it%05d.h5" % (itr_out_dir, args.expName, epoch), \
                        include_optimizer=False)
-        # generator.save("%s/%s-ckpt.h5" % (itr_out_dir, args.expName), \
-        #                overwrite=True, include_optimizer=True)
+
         discriminator.save("%s/disc-it%05d.h5" % (itr_out_dir, epoch), \
                        include_optimizer=False)
 
     sys.stdout.flush()
 
-# ckpt.save(file_prefix = ckpt_dir+"/gan-model")
