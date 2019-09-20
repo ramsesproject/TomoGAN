@@ -12,3 +12,6 @@ To give it a try:
 
 * run with python ./main-gan.py -gpu 0 -expName test -xtrain dataset/noisy4train.h5 -ytrain dataset/clean4train.h5 -xtest dataset/noisy4test.h5 -ytest dataset/clean4test.h5
 
+
+![Noisy Image](repo-image/ns-w016-i10-r25-s0364.png)
+![Denoisied Image](repo-image/dn-w016-i10-r25-s0364.png)
