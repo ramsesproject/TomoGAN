@@ -17,10 +17,10 @@ You may download the X-ray projection from [TomoBank](https://tomobank.readthedo
 
 As an example / teaser, a pair of noisy input and its denoised output are shown as follows,
 
-AN example __input__
+An example __input__ (a low-dose X-ray tomographic image ):
 
 ![Noisy Image](repo-image/ns-w016-i10-r25-s0364.png)
 
-The corresponding __output__
+The corresponding __output__ (i.e., denoised using TomoGAN):
 
 ![Denoisied Image](repo-image/dn-w016-i10-r25-s0364.png)
