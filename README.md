@@ -27,4 +27,6 @@ The corresponding __output__ (i.e., denoised using TomoGAN):
 
 ![Denoisied Image](repo-image/dn-w016-i10-r25-s0364.png)
 
+Video clips
+
 [![](http://img.youtube.com/vi/PcHsOK4qwlk/0.jpg)](http://www.youtube.com/watch?v=PcHsOK4qwlk "Comparison ")
