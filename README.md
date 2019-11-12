@@ -17,6 +17,29 @@ To give it a try:
 __Note__: with the sample dataset (128 images for training) provided here, you may not reproduce our results because we used a much larger dataset that has 2048 images. 
 You may download the X-ray projection from [TomoBank](https://tomobank.readthedocs.io/en/latest/source/data/docs.data.spheres.html) and make a reconstruction using all the projections as ground truth and a subsampled projections (every 32) as (low dose) noisy input. The dataset we provided, both norml dose (all projections) and low-dose (1/32 subsampled), were reconstructed using SIRT algorithms with 100 iterastions. 
 
+## Citation
+If you use this code for your research, please cite our [paper](https://junyanz.github.io/CycleGAN/):
+
+```
+@inproceedings{liu2019deep,
+    title={Deep Learning Accelerated Light Source Experiments},
+    author={Zhengchun Liu and Tekin Bicer and Rajkumar Kettimuthu and Ian Foster},
+    year={2019},
+    booktitle={2019 IEEE/ACM Third Workshop on Deep Learning on Supercomputers (DLS)}
+}
+
+@misc{liu2019tomogan,
+    title={TomoGAN: Low-Dose X-Ray Tomography with Generative Adversarial Networks},
+    author={Zhengchun Liu and Tekin Bicer and Rajkumar Kettimuthu and Doga Gursoy and Francesco De Carlo and Ian Foster},
+    year={2019},
+    eprint={1902.07582},
+    archivePrefix={arXiv},
+    primaryClass={cs.CV}
+}
+
+```
+
+# Example
 As an example / teaser, a pair of noisy input and its denoised output are shown as follows,
 
 An example __input__ (a low-dose X-ray tomographic image ):
