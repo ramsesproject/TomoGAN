@@ -18,7 +18,7 @@ __Note__: with the sample dataset (128 images for training) provided here, you m
 You may download the X-ray projection from [TomoBank](https://tomobank.readthedocs.io/en/latest/source/data/docs.data.spheres.html) and make a reconstruction using all the projections as ground truth and a subsampled projections (every 32) as (low dose) noisy input. The dataset we provided, both norml dose (all projections) and low-dose (1/32 subsampled), were reconstructed using SIRT algorithms with 100 iterastions. 
 
 ## Citation
-If you use this code for your research, please cite our [paper](https://junyanz.github.io/CycleGAN/):
+If you use this code for your research, please cite our paper(s):
 
 ```
 @inproceedings{liu2019deep,
