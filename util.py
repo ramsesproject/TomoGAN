@@ -16,9 +16,9 @@ def scale2uint8(d_img):
 #     _min, _max = d_img.min(), d_img.max()
     np.nan_to_num(d_img, copy=False)
     _min, _max = np.percentile(d_img, 0.05), np.percentile(d_img, 99.95)
-    d_img = d_img.clip(_min, _max)
+    s_img = d_img.clip(_min, _max)
     if _max == _min:
-        d_img -= _max
+        s_img -= _max
     else:
-        d_img = (d_img - _min) * 255. / (_max - _min)
-    return d_img.astype('uint8')
+        s_img = (s_img - _min) * 255. / (_max - _min)
+    return s_img.astype('uint8')
