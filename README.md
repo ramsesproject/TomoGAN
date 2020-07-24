@@ -28,13 +28,15 @@ If you use this code for your research, please cite our paper(s):
     booktitle={2019 IEEE/ACM Third Workshop on Deep Learning on Supercomputers (DLS)}
 }
 
-@misc{liu2019tomogan,
-    title={TomoGAN: Low-Dose X-Ray Tomography with Generative Adversarial Networks},
-    author={Zhengchun Liu and Tekin Bicer and Rajkumar Kettimuthu and Doga Gursoy and Francesco De Carlo and Ian Foster},
-    year={2019},
-    eprint={1902.07582},
-    archivePrefix={arXiv},
-    primaryClass={cs.CV}
+@article{liu2020tomogan,
+  title={TomoGAN: low-dose synchrotron x-ray tomography with generative adversarial networks: discussion},
+  author={Liu, Zhengchun and Bicer, Tekin and Kettimuthu, Rajkumar and Gursoy, Doga and De Carlo, Francesco and Foster, Ian},
+  journal={JOSA A},
+  volume={37},
+  number={3},
+  pages={422--434},
+  year={2020},
+  publisher={Optical Society of America}
 }
 
 ```
