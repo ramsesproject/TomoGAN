@@ -42,15 +42,16 @@ def gen_train_batch_bg(x_fn, y_fn, mb_size, in_depth, img_size):
 
     while True:
         idx = np.random.randint(0, X.shape[0]-in_depth, mb_size)
-        crop_idx = np.random.randint(0, X.shape[1]-img_size)
-        
+        rst = np.random.randint(0, X.shape[1]-img_size, mb_size)
+        cst = np.random.randint(0, X.shape[2]-img_size, mb_size)
+
         batch_X = np.array([np.transpose(X[s_idx : (s_idx+in_depth)], (1, 2, 0)) for s_idx in idx])
-        batch_X = batch_X[:, crop_idx:(crop_idx+img_size), crop_idx:(crop_idx+img_size), :]
+        batch_X = [batch_X[_i, _r:_r+img_size, _c:_c+img_size, :] for _i, _r, _c in zip(range(mb_size), rst, cst)]
 
         batch_Y = np.expand_dims([Y[s_idx+in_depth//2] for s_idx in idx], 3)
-        batch_Y = batch_Y[:, crop_idx:(crop_idx+img_size), crop_idx:(crop_idx+img_size), :]
+        batch_Y = [batch_Y[_i, _r:_r+img_size, _c:_c+img_size, :] for _i, _r, _c in zip(range(mb_size), rst, cst)]
 
-        yield batch_X, batch_Y
+        yield np.array(batch_X), np.array(batch_Y)
 
 def get1batch4test(x_fn, y_fn, in_depth):
     X = h5py.File(x_fn, 'r')['images']
