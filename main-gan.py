@@ -17,7 +17,7 @@ parser.add_argument('-lmse', type=float, default=0.5, help='lambda mse')
 parser.add_argument('-lperc', type=float, default=2.0, help='lambda perceptual')
 parser.add_argument('-ladv', type=float, default=20, help='lambda adv')
 parser.add_argument('-lunet', type=int, default=3, help='Unet layers')
-parser.add_argument('-depth', type=int, default=3, help='input depth')
+parser.add_argument('-depth', type=int, default=1, help='input depth')
 parser.add_argument('-itg', type=int, default=1, help='iterations for G')
 parser.add_argument('-itd', type=int, default=2, help='iterations for D')
 parser.add_argument('-xtrain', type=str, required=True, help='file name of X for training')
@@ -61,7 +61,6 @@ mb_data_iter = bkgdGen(data_generator=gen_train_batch_bg(x_fn=args.xtrain, \
 generator = make_generator_model(input_shape=(None, None, in_depth), nlayers=args.lunet ) 
 discriminator = make_discriminator_model(input_shape=(img_size, img_size, 1))
 
-# input range should be [0, 255]
 feature_extractor_vgg = tf.keras.applications.VGG19(\
                         weights='vgg19_weights_notop.h5', \
                         include_top=False)
@@ -98,8 +97,12 @@ for epoch in range(40001):
             loss_mse = tf.losses.mean_squared_error(gen_imgs, y_mb)
             loss_adv = adversarial_loss(disc_fake_o)
 
-            vggf_gt  = feature_extractor_vgg.predict(tf.concat([y_mb, y_mb, y_mb], 3).numpy())
-            vggf_gen = feature_extractor_vgg.predict(tf.concat([gen_imgs, gen_imgs, gen_imgs], 3).numpy())
+            _img_gt = tf.keras.applications.vgg19.preprocess_input(np.concatenate([y_mb, y_mb, y_mb], 3))
+            vggf_gt = feature_extractor_vgg.predict(_img_gt)
+
+            _img_dn = tf.keras.applications.vgg19.preprocess_input(np.concatenate([gen_imgs, gen_imgs, gen_imgs], 3))
+            vggf_gen = feature_extractor_vgg.predict(_img_dn)
+
             perc_loss= tf.losses.mean_squared_error(vggf_gt.reshape(-1), vggf_gen.reshape(-1))
 
             gen_loss = lambda_adv * loss_adv + lambda_mse * loss_mse + lambda_perc * perc_loss
