@@ -1,5 +1,7 @@
 # TomoGAN
 
+[NEWS]() updates of this project have been moved to [https://github.com/lzhengchun/TomoGAN](https://github.com/lzhengchun/TomoGAN) We just released a ner version to support Tensroflow 2
+
 Paper: [arXiv:1902.07582](https://arxiv.org/abs/1902.07582); [arXiv:1910.04081](https://arxiv.org/abs/1910.04081) Relevant [presentation](https://lzhengchun.github.io/file/pse-ai-townhall-TomoGAN-Zhengchun-Liu.pdf) 
 
 An image quality enhancement model based on generative adversarial networks originally developed for synchrotron X-Ray tomography. It has also been used for other case like streaming tomography, the joint ptycho-tomography problem. We also developed a workflow to deploy TomoGAN on Coral edge TPU ([arXiv:1911.05878](https://arxiv.org/abs/1911.05878)) which can process an image with 1k x 1k pixels in 500ms. 
