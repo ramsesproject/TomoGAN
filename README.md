@@ -1,6 +1,6 @@
 # TomoGAN
 
-🆕 🔥 updates of this project have been __moved__ to [https://github.com/lzhengchun/TomoGAN](https://github.com/lzhengchun/TomoGAN) We just released a ner version to support Tensroflow 2
+🆕 🔥 updates of this project have been __moved__ to [https://github.com/lzhengchun/TomoGAN](https://github.com/lzhengchun/TomoGAN) We just released a new version to support Tensroflow 2
 
 Paper: [arXiv:1902.07582](https://arxiv.org/abs/1902.07582); [arXiv:1910.04081](https://arxiv.org/abs/1910.04081) Relevant [presentation](https://lzhengchun.github.io/file/pse-ai-townhall-TomoGAN-Zhengchun-Liu.pdf) 
 
